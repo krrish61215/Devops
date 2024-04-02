@@ -33,6 +33,10 @@ public class ItemController {
                 .findFirst()
                 .orElse(null);
     }
+    @GetMapping("/status")
+    public String checkApiStatus() {
+        return "The Spring Boot API is working!";
+    }
 
     @PutMapping("/{id}")
     public Item updateItem(@PathVariable Long id, @RequestBody Item updatedItem) {
