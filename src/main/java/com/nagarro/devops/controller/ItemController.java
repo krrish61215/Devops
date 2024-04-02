@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-@RequestMapping("/api/items")
+@RequestMapping("/api")
 public class ItemController {
     private final List<Item> items = new ArrayList<>();
     private final AtomicLong counter = new AtomicLong();
 
-    @GetMapping
+    @GetMapping("/items")
     public List<Item> getAllItems() {
         return items;
     }
 
-    @PostMapping
+    @PostMapping("/items")
     public Item createItem(@RequestBody Item item) {
         item.setId(counter.incrementAndGet());
         items.add(item);
